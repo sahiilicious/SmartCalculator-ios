@@ -1,0 +1,30 @@
+# Optional: XcodeGen spec. Only needed if the included .xcodeproj ever refuses to open.
+#   brew install xcodegen && xcodegen generate
+name: SmartCalculator
+options:
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  SmartCalculator:
+    type: application
+    platform: iOS
+    sources: [SmartCalculator]
+    info:
+      path: SmartCalculator/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.SmartCalculator
+        TARGETED_DEVICE_FAMILY: "1"
+        SWIFT_VERSION: "5.0"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        GENERATE_INFOPLIST_FILE: YES
+  SmartCalculatorTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [SmartCalculatorTests]
+    dependencies:
+      - target: SmartCalculator
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.SmartCalculatorTests
+        GENERATE_INFOPLIST_FILE: YES
